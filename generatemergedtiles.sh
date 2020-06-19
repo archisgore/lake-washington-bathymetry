@@ -10,5 +10,5 @@ fi
 echo "Converting merged TIF file into Google Maps tiles..."
 
 echo "Converting file files/merged.tif into tiles..."
-docker run --rm -it -v $PWD:/pwd osgeo/gdal:alpine-normal-latest gdal2tiles.py -z 0-19 -e --processes=4 /pwd/files/merged.tif /pwd/tiles
+docker run --rm -it -v $PWD:/pwd osgeo/gdal:alpine-normal-latest gdal2tiles.py -z 0-19 -e --processes=$(nproc) /pwd/files/merged.tif /pwd/tiles
 
